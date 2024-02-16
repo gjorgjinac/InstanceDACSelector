@@ -36,7 +36,7 @@ for file in [
     whole_df=pd.read_csv(f'data/{file}',sep='\t').set_index(['episode','seed','instance'])
     
     for seed in whole_df.reset_index()['seed'].unique():
-        for rai in ['I']:
+        for rai in ['A','AI','I']:
             df=whole_df.query('seed==@seed')
             if rai=='A':
                 columns_to_use=list(filter(lambda x: x.startswith('S1') or x.startswith('S2') if 'catch22' in file.lower() else x.startswith('state_Action'), df.columns))

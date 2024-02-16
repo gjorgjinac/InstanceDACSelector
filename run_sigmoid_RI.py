@@ -21,7 +21,7 @@ parser = argparse.ArgumentParser(description="Run selector")
 
 parser.add_argument("--run", type=int, help="Run number")
 args = parser.parse_args()
-use_params=False
+
 run = args.run
 #"sigmoid_2D3M_test_catch22.csv", "sigmoid_2D3M_test.csv", 
 for file in ["Sigmoid/Catch 22 rewards_RI/sigmoid_2D3M_train_rewards_catch22_seed_1.csv",
