@@ -6,10 +6,10 @@ Several representations are obtained, using raw trajectories or catch22 features
 
 The requirements.txt file contains a snapshot of the libraries in the environment used to execute the experiments.
 
-The file run_sigmoid_AI.py is used to run selector on features extracted from the actions and/or instance features for the Sigmoid function
-The file run_sigmoid_RAI.py is used to run selector on features extracted from the rewards, actions and instance features for the Sigmoid function
-The file run_sigmoid_RI.py is used to run selector on features extracted from the rewards and/or instance features for the Sigmoid function
-The file run_cmaes.py is used to run selector for the CMAES data.
+- The file run_sigmoid_AI.py is used to run selector on features extracted from the actions and/or instance features for the Sigmoid function
+- The file run_sigmoid_RAI.py is used to run selector on features extracted from the rewards, actions and instance features for the Sigmoid function
+- The file run_sigmoid_RI.py is used to run selector on features extracted from the rewards and/or instance features for the Sigmoid function
+- The file run_cmaes.py is used to run selector for the CMAES data.
 
 All of the scripts expect an argument "run" which should be an integer representing the run id of the selector execution.
 Which features will be used can be controlled using the use_params and rai variables within each script. The current script version is set to calculate all combinations used in our experiments.
