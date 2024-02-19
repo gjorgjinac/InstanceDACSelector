@@ -46,17 +46,12 @@ for file in [
             print(df.columns)
             df.index=[f'eposide_{e}_instance_{i}' for (e,s,i) in df.index]
             df.index.name='i1'
-            
-            if True or not os.path.isfile(sim_file):
-                
-                print('Calculating similarity')
-                sim=cosine_similarity(df.values,df.values)
-                sim=pd.DataFrame(sim, index=df.index,columns=df.index)
-                print('Melting similarity')
-                sim_melted=sim.reset_index().melt('i1', sim.columns, var_name='i2', value_name='sim')
-                #sim_melted.to_csv(sim_file, compression='zip')
-            else:
-                sim_melted=pd.read_csv(sim_file, compression='zip')
+
+            sim=cosine_similarity(df.values,df.values)
+            sim=pd.DataFrame(sim, index=df.index,columns=df.index)
+            print('Melting similarity')
+            sim_melted=sim.reset_index().melt('i1', sim.columns, var_name='i2', value_name='sim')
+
             print(sim_melted)
             
             
