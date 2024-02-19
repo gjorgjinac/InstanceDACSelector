@@ -42,6 +42,7 @@ for file in [
                 columns_to_use=list(filter(lambda x: x.startswith('S1') or x.startswith('S2') if 'catch22' in file.lower() else x.startswith('state_Action'), df.columns))
             if rai=='AI':
                 columns_to_use=list(filter(lambda x: x.startswith('S1') or x.startswith('S2') if 'catch22' in file.lower() else x.startswith('state_Action'), df.columns))
+                
                 columns_to_use+=param_columns
             if rai=='I':
                 columns_to_use=param_columns
@@ -53,17 +54,13 @@ for file in [
             df.index.name='i1'
             
             print(df.columns)
-            if True or not os.path.isfile(sim_file):
-                
-                print('Calculating similarity')
-                sim=cosine_similarity(df.values,df.values)
-                sim=pd.DataFrame(sim, index=df.index,columns=df.index)
-                print('Melting similarity')
-                sim_melted=sim.reset_index().melt('i1', sim.columns, var_name='i2', value_name='sim')
-                #sim_melted.to_csv(sim_file, compression='zip')
-            else:
-                sim_melted=pd.read_csv(sim_file, compression='zip')
-            print(sim_melted)
+  
+            print('Calculating similarity')
+            sim=cosine_similarity(df.values,df.values)
+            sim=pd.DataFrame(sim, index=df.index,columns=df.index)
+            print('Melting similarity')
+            sim_melted=sim.reset_index().melt('i1', sim.columns, var_name='i2', value_name='sim')
+
             
             
             

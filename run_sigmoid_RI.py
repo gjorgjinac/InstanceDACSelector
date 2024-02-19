@@ -48,17 +48,12 @@ for file in ["Sigmoid/Catch 22 rewards_RI/sigmoid_2D3M_train_rewards_catch22_see
         df.index=[f'instance_{i}' for i in df.index]
         df.index.name='i1'
         print(df.columns)
-        sim_file=f'results/similarity_matrix_use_params_{use_params}_{file}'
-        if True or not os.path.isfile(sim_file):
-            
-            print('Calculating similarity')
-            sim=cosine_similarity(df.values,df.values)
-            sim=pd.DataFrame(sim, index=df.index,columns=df.index)
-            print('Melting similarity')
-            sim_melted=sim.reset_index().melt('i1', sim.columns, var_name='i2', value_name='sim')
-            #sim_melted.to_csv(sim_file, compression='zip')
-        else:
-            sim_melted=pd.read_csv(sim_file, compression='zip')
+
+        sim=cosine_similarity(df.values,df.values)
+        sim=pd.DataFrame(sim, index=df.index,columns=df.index)
+        print('Melting similarity')
+        sim_melted=sim.reset_index().melt('i1', sim.columns, var_name='i2', value_name='sim')
+
         print(sim_melted)
         
         
